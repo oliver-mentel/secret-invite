@@ -1,20 +1,58 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>Geheime Einladung</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; }
-        #output { margin-top: 20px; font-size: 1.2em; color: green; }
-        #error { margin-top: 20px; font-size: 1.2em; color: red; }
+        body {
+            background-color: #0d0d0d;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            font-size: 2em;
+            animation: flicker 1.5s infinite;
+        }
+
+        input[type="password"] {
+            background-color: #000;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 10px;
+            font-size: 1em;
+            width: 250px;
+        }
+
+        button {
+            background-color: #000;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #output, #error {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
     </style>
 </head>
 <body>
-    <h1>🔐 Geheime Einladung</h1>
-    <p>Bitte gib das Passwort ein, um die Details zu sehen:</p>
-    <input type="password" id="password" placeholder="Passwort">
-    <button onclick="checkPassword()">Einreichen</button>
+    <h1>🔐 Zugriffskontrolle aktiviert</h1>
+    <p>Gib das Passwort ein, um die geheime Einladung zu entschlüsseln:</p>
+    <input type="password" id="password" placeholder="••••••••">
+    <br>
+    <button onclick="checkPassword()">Zugriff prüfen</button>
     <div id="output"></div>
     <div id="error"></div>
 
@@ -25,10 +63,11 @@
             var error = document.getElementById("error");
             output.innerHTML = "";
             error.innerHTML = "";
-            if (input === "ESCAPE") {
+
+            if (input === "CHIAVE") {
                 output.innerHTML = "<strong>📍 Adresse:</strong> Hohlstrasse 465, 8048 Zürich<br><strong>🕒 Zeit:</strong> 19:05 | 18.08.2025";
             } else {
-                error.innerHTML = "❌ Falsches Passwort. Bitte versuche es erneut.";
+                error.innerHTML = "❌ Zugriff verweigert. Ungültiges Passwort.";
             }
         }
     </script>
