@@ -57,11 +57,13 @@
     </style>
 </head>
 <body>
-<h1>🔐 ACCESS CONTROL ENGAGED</h1>
-<p>Enter the passphrase to decrypt the secret rendezvous. Only true hackers proceed.</p>
-<input type="password" id="password" placeholder="••••••••">
-<br>
-<button onclick="checkPassword()">INITIATE ACCESS</button>
+<div id="access-panel">
+    <h1>🔐 ACCESS CONTROL ENGAGED</h1>
+    <p>Enter the passphrase to decrypt the secret rendezvous. Only true hackers proceed.</p>
+    <input type="password" id="password" placeholder="••••••••">
+    <br>
+    <button onclick="checkPassword()">INITIATE ACCESS</button>
+</div>
 <div id="hint">H</div>
 <div id="output"></div>
 <div id="error"></div>
@@ -72,11 +74,13 @@
         var output = document.getElementById("output");
         var error = document.getElementById("error");
         var hint = document.getElementById("hint");
+        var panel = document.getElementById("access-panel");
         output.innerHTML = "";
         error.innerHTML = "";
 
         if (input === "CHIAVE") {
             hint.innerHTML = "";
+            panel.innerHTML = "";
             output.innerHTML =
                 '<img src="solved.png" alt="Hacker" style="max-width:300px;display:block;margin:0 auto 20px auto;">' +
                 '<strong>📍 Location Unlocked:</strong> Hohlstrasse 465, 8048 Zurich<br>' +
