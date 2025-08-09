@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Geheime Einladung</title>
+    <title>Secret Invitation</title>
     <style>
         body {
             background-color: #0d0d0d;
@@ -57,11 +57,11 @@
     </style>
 </head>
 <body>
-<h1>🔐 Zugriffskontrolle aktiviert</h1>
-<p>Gib das Lösungswort ein, um die geheime Einladung zu entschlüsseln:</p>
+<h1>🔐 ACCESS CONTROL ENGAGED</h1>
+<p>Enter the passphrase to decrypt the secret rendezvous. Only true hackers proceed.</p>
 <input type="password" id="password" placeholder="••••••••">
 <br>
-<button onclick="checkPassword()">Zugriff prüfen</button>
+<button onclick="checkPassword()">INITIATE ACCESS</button>
 <div id="hint">H</div>
 <div id="output"></div>
 <div id="error"></div>
@@ -71,13 +71,19 @@
         var input = document.getElementById("password").value;
         var output = document.getElementById("output");
         var error = document.getElementById("error");
+        var hint = document.getElementById("hint");
         output.innerHTML = "";
         error.innerHTML = "";
 
         if (input === "CHIAVE") {
-            output.innerHTML = "<strong>📍 Adresse:</strong> Hohlstrasse 465, 8048 Zürich<br><strong>🕒 Zeit:</strong> 19:05 | 18.08.2025";
+            hint.innerHTML = "";
+            output.innerHTML =
+                '<img src="solved.png" alt="Hacker" style="max-width:300px;display:block;margin:0 auto 20px auto;">' +
+                '<strong>📍 Location Unlocked:</strong> Hohlstrasse 465, 8048 Zurich<br>' +
+                '<strong>🕒 Time Window:</strong> 19:05 | 18.08.2025<br>' +
+                '<span style="color:#00ff00; display:inline-block; margin-top:20px;">Welcome, Operative. Rendezvous coordinates decrypted. Trust no one.</span>';
         } else {
-            error.innerHTML = "❌ Zugriff verweigert. Ungültiges Passwort.";
+            error.innerHTML = "❌ ACCESS DENIED. Invalid passphrase. Intrusion detected.";
         }
     }
 </script>
