@@ -42,34 +42,44 @@
         }
 
         @keyframes flicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        #hint {
+            font-size: 20em;
+            margin-top: 150px;
         }
     </style>
 </head>
 <body>
-    <h1>🔐 Zugriffskontrolle aktiviert</h1>
-    <p>Gib das Passwort ein, um die geheime Einladung zu entschlüsseln:</p>
-    <input type="password" id="password" placeholder="••••••••">
-    <br>
-    <button onclick="checkPassword()">Zugriff prüfen</button>
-    <div id="output"></div>
-    <div id="error"></div>
+<h1>🔐 Zugriffskontrolle aktiviert</h1>
+<p>Gib das Passwort ein, um die geheime Einladung zu entschlüsseln:</p>
+<input type="password" id="password" placeholder="••••••••">
+<br>
+<button onclick="checkPassword()">Zugriff prüfen</button>
+<div id="hint">H</div>
+<div id="output"></div>
+<div id="error"></div>
 
-    <script>
-        function checkPassword() {
-            var input = document.getElementById("password").value;
-            var output = document.getElementById("output");
-            var error = document.getElementById("error");
-            output.innerHTML = "";
-            error.innerHTML = "";
+<script>
+    function checkPassword() {
+        var input = document.getElementById("password").value;
+        var output = document.getElementById("output");
+        var error = document.getElementById("error");
+        output.innerHTML = "";
+        error.innerHTML = "";
 
-            if (input === "CHIAVE") {
-                output.innerHTML = "<strong>📍 Adresse:</strong> Hohlstrasse 465, 8048 Zürich<br><strong>🕒 Zeit:</strong> 19:05 | 18.08.2025";
-            } else {
-                error.innerHTML = "❌ Zugriff verweigert. Ungültiges Passwort.";
-            }
+        if (input === "CHIAVE") {
+            output.innerHTML = "<strong>📍 Adresse:</strong> Hohlstrasse 465, 8048 Zürich<br><strong>🕒 Zeit:</strong> 19:05 | 18.08.2025";
+        } else {
+            error.innerHTML = "❌ Zugriff verweigert. Ungültiges Passwort.";
         }
-    </script>
+    }
+</script>
 </body>
 </html>
